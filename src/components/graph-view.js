@@ -706,7 +706,7 @@ class GraphView extends Component {
 
     d3Node.selectAll("text").remove();
 
-    let typeText = this.props.nodeTypes[d.type].typeText;
+    let typeText = '';
     let style = this.getTextStyle(d, this.props.selected);
 
     let el = d3Node.append('text')

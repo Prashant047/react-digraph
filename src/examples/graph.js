@@ -51,47 +51,10 @@ const SPECIAL_EDGE_TYPE = "specialEdge";
 // elsewhere in the App or be generated from some other state upstream of this component.
 const sample = {
   "nodes": [
-    {
-      "id": 1,
-      "title": "Node A",
-      "x": 258.3976135253906,
-      "y": 331.9783248901367,
-      "type": SPECIAL_TYPE
-    },
-    {
-      "id": 2,
-      "title": "Node B",
-      "x": 593.9393920898438,
-      "y": 260.6060791015625,
-      "type": EMPTY_TYPE,
-      "subtype": SPECIAL_CHILD_SUBTYPE
-    },
-    {
-      "id": 3,
-      "title": "Node C",
-      "x": 237.5757598876953,
-      "y": 61.81818389892578,
-      "type": EMPTY_TYPE
-    },
-    {
-      "id": 4,
-      "title": "Node C",
-      "x": 600.5757598876953,
-      "y": 600.81818389892578,
-      "type": EMPTY_TYPE
-    }
+    
   ],
   "edges": [
-    {
-      "source": 1,
-      "target": 2,
-      "type": SPECIAL_EDGE_TYPE
-    },
-    {
-      "source": 2,
-      "target": 4,
-      "type": EMPTY_EDGE_TYPE
-    }
+    
   ]
 }
 
@@ -166,11 +129,11 @@ export class Graph extends Component {
     // could be used here to determine node type
     // There is also support for subtypes. (see 'sample' above)
     // The subtype geometry will underlay the 'type' geometry for a node
-    const type = Math.random() < 0.25 ? SPECIAL_TYPE : EMPTY_TYPE;
+    const type = EMPTY_TYPE;
 
     const viewNode = {
       id: this.state.graph.nodes.length + 1,
-      title: '',
+      title: `${this.state.graph.nodes.length }`,
       type: type,
       x: x,
       y: y
@@ -203,7 +166,7 @@ export class Graph extends Component {
 
     // This is just an example - any sort of logic
     // could be used here to determine edge type
-    const type = sourceViewNode.type === SPECIAL_TYPE ? SPECIAL_EDGE_TYPE : EMPTY_EDGE_TYPE;
+    const type = EMPTY_EDGE_TYPE;
 
     const viewEdge = {
       source: sourceViewNode[NODE_KEY],
